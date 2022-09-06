@@ -43,7 +43,7 @@ class PostCreateFormTests(TestCase):
             follow=True
         )
         # Проверяем, увеличилось ли число постов
-        self.assertEqual(Post.objects.count(), posts_count+1)
+        self.assertEqual(Post.objects.count(), posts_count + 1)
 
     def test_edit_post(self):
         form_data = {
