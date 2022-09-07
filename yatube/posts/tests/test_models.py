@@ -21,15 +21,17 @@ class PostModelTest(TestCase):
             text='Тестовый пост',
         )
 
-    def test_models_have_correct_object_names(self):
+    def test_models_have_correct_object_text(self):
         message = '__str__ does not work correctly'
         post = PostModelTest.post
-        exp_post = str(post)
-        self.assertEqual(exp_post, post.text, message)
+        exp_post = post.text[:15]
+        self.assertEqual(exp_post, str(post), message)
 
+    def test_models_have_correct_object_title(self):
+        message = '__str__ does not work correctly'
         group = PostModelTest.group
-        exp_group = str(group)
-        self.assertEqual(exp_group, group.title, message)
+        exp_group = group.title
+        self.assertEqual(exp_group, str(group), message)
 
     def test_verbose_name(self):
         post = PostModelTest.post
