@@ -47,16 +47,14 @@ class PostCreateFormTests(TestCase):
 
     def test_create_post(self):
         """Валидная форма создает запись в Post."""
-        # Подсчитаем количество записей в Task
         posts_count = Post.objects.count()
         form_data = {
             'text': 'Новый пост в пост креате',
         }
-        # Отправляем POST-запрос
         self.authorized_client.post(
             reverse('posts:post_create'),
             data=form_data,
             follow=True
         )
         # Проверяем, увеличилось ли число постов
-        self.assertEqual(Post.objects.count(), posts_count+1)
+        self.assertEqual(Post.objects.count(), posts_count + 1)
